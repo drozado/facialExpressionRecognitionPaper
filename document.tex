@@ -1,19 +1,60 @@
-%%This is a very basic article template.
-%%There is just one section and two subsections.
-\documentclass{article}
+\documentclass[]{article}
 
+\usepackage{amsmath}
+\usepackage[]{graphicx}
+\usepackage{subfigure}
+\usepackage[latin1]{inputenc}
+\usepackage{comment}
+\usepackage{url}
+%\usepackage{biblatex} 
+%\usepackage[pdftex]{graphicx}
+\usepackage{anysize}
+\marginsize{3cm}{3cm}{2cm}{2.5cm}%l r t b
+
+\title{Face and Facial Expression Recognition}
+%\title{Controlling a smart phone using gaze gestures}
+%\title{Gaze gestures as an innovative HCI method for smartphone like devices}
+ 
+\author{Eduardo Neiva, Jesus Nuevo, David Rozado}
+
+\setlength\parindent{0pt} %no indentation in paragraphs
+% Document starts
 \begin{document}
 
+\maketitle
 
-\section{Title}
+\section{Abstract}
+This is the abstract
 
-\subsection{Subtitle}
+\section{Introduction}
+This is an introduction with a cite to myself \cite{Rozado2012a}
 
-Plain text.
+\section{Methodology}
+\subsection{Face Tracker}
 
-\subsection{Another subtitle}
+\subsection{Experimental Setup}
+This is a reference to Figure \ref{figureLabel}
 
+\begin{figure}[ht]
+\begin{center}
+\vspace{-3mm}
+\includegraphics[width=0.95\textwidth,height=50mm]{figures/fileName.jpg}
+\end{center}
+\caption{\textbf{Title of caption.} Explanation of the figure.}
+\label{figureLabel}
+\end{figure}
+
+
+\section{Results}
 More plain text.
 
+\section{Discussion}
+Bla bla
+
+\section{Conclusion}
+Bli bli bli
+
+\bibliographystyle{plain}
+\bibliography{library}
 
 \end{document}
