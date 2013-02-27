@@ -24,10 +24,51 @@
 \maketitle
 
 \section{Abstract}
-This is the abstract
+We present our work on an open source system to classify facial expressions from continuous video input.
+
+We study person-dependent and person-independent recognition of identity and expression.
 
 \section{Introduction}
-This is an introduction with a cite to myself \cite{Rozado2012a}
+Human computer interaction could be agumented by providing a computer systems with the ability to recognize the emotions
+of the humans interfacing the computer. Emotions are conveyed by humans  using the visual, vocal and other physiological
+means such as body gestures. Facial expressions are an indirect proxy to measure the internal cognitive emotions of
+humans. Impaired facial expression recognition by humans can be a sign of serious cognitive dysfunction such as
+schizophrenia \cite{Edwards2002789}.  Facial attributes can be tracked computationally through a video stream of the
+subject's face. Making the computer aware of the emotions of the user could lead the way towards more natural interaction.
+
+
+In this work we describe the usage of an open-source face tracker to feed a set of machine learning classifiers that the
+tech subjects identity and their facial expressions. The face tracker provides the extraction of invariant features in
+the tracked faces. We used support vector machines  to classify the invariant features provided by the face tracker.
+
+
+The psychological tradition has usefully classify facial expressions in seven categories: neutral, anger, disgust, fear,
+joy, sadness and surprise.
+
+
+Previous work has employed different techniques to classify  facial expressions. The work from \cite{Cohen2003160}
+tested the friend nation network classifiers for classifying expression from media, focusing on changes in distribution
+assumptions and feature dependency structures. Authors also proposed an enough that the architecture of hidden Markov
+models for automatically segmenting and recognizing human facial expressions. Authors reported recognition rates up to
+83\% For frame-based recognition methods and 82\% for the multilevel HMM. 
+ 
+
+The work from \cite{Chen670976} investigated the emotional contents of speech and video based facial expression to
+proposes an bioinspired algorithm for human facial expression recognition, concluding that both modalities can be
+complimentary and able to achieve higher recognition rates than either morality alone.
+
+
+Authors in \cite{Bartlett4624313} use perceptual primitives to code 7 facial expressions in real-time. the system first
+detects frontal faces using a cascade of feature detectors trained with boosting techniques. The expression recognizer
+receives image patches located by the phase detector. A Gabor representation of the parts is used  by a bank of kernel
+based classifiers. Authors used a combination of Adaboost and support vector machines to enhance performance. One of the
+most interesting properties of these work was its ability to change the outputs of the classifiers smoothly as a
+function of time, hence, providing a dynamical representation of facial expression.
+
+
+
+
+
 
 \section{Methodology}
 \subsection{Face Tracker}
@@ -48,8 +89,8 @@ This is a reference to Figure \ref{figureLabel}
 \section{Results}
 More plain text.
 
-\section{Discussion}
-Bla bla
+\section{Summary and Discussion}
+In this work we have used an open-source face tracker to classify facial expressions.
 
 \section{Conclusion}
 Bli bli bli
