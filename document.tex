@@ -11,7 +11,7 @@
 \usepackage{anysize}
 \marginsize{3cm}{3cm}{2cm}{2.5cm}%l r t b
 
-\title{Face and Facial Expression Recognition}
+\title{Open source face tracker for identity detection and facial expression Recognition}
 %\title{Controlling a smart phone using gaze gestures}
 %\title{Gaze gestures as an innovative HCI method for smartphone like devices}
  
@@ -24,12 +24,18 @@
 \maketitle
 
 \section{Abstract}
-We present our work on an open source system to classify facial expressions from continuous video input.
+Face and eye tracking technology are fairly well developed and robust technologies. Eye tracking permits the monitoring 
+of the user's area of attention on a computer screen while also providing a hint about possible intention.
+Facial tracking can augment eye tracking by monitoring facial features that can convey the identity of the user or its
+internal cognitive state as expressed on its facial expression. In this work, we use an open source face tracker that to
+classify facial expressions from continuous video input. The system uses ---------- for jesus to fill --------------. We
+show that the studied face tracker is a powerful tool to recognize the identity of the user among a larger pool of
+subjects. We also show  that it can robustly recognize facial expressions of users on which the system has been trained
+while also performing well on users never before exposed to the system.
 
-We study person-dependent and person-independent recognition of identity and expression.
 
 \section{Introduction}
-Human computer interaction could be agumented by providing a computer systems with the ability to recognize the emotions
+Human computer interaction could be augmented by providing a computer systems with the ability to recognize the emotions
 of the humans interfacing the computer. Emotions are conveyed by humans  using the visual, vocal and other physiological
 means such as body gestures. Facial expressions are an indirect proxy to measure the internal cognitive emotions of
 humans. Impaired facial expression recognition by humans can be a sign of serious cognitive dysfunction such as
@@ -88,12 +94,36 @@ network classifiers \cite{Cohen1211408}, geometric deformation features and supp
 for fully automatic recognition of facial expressions. 
 
 
-In summary, in this paper we apply \ldots for identity recognition of facial expression recognition bla bla bla.
+Facial identity recognition is another subject that has drawn a lot of attention in the research literature. While being
+apparently trivial for humans to solve, automatic approaches have traditionally lagged behind the performance of
+humans and have only recently started to catch up with the ability of the human brain to recognize faces
+\cite{onintelligence, Rozado2012b}. Face recognition it's important  for a wide range of commercial and law enforcement
+applications. Only recently has the technology required to carry out automatic classification of faces become
+available.
+
+Recognition of faces in outdoor environments with variation in pose and illumination remains a largely unsolved problem.
+
+The work from \cite{Zhao:2003} provides a good literature survey on the subject of face recognition. In
+\cite{Craw1987183} undertake an in-depth discussion of face features automatic extraction for classification purposes of
+grayscale images.
+
+The work from \cite{Zhang20092876} undertakes a comprehensive review  of the challenging topic of pose invariant face
+recognition, and while showing that the performance of different methods is still far from perfect, several promising
+directions for future research  are suggested.
+
+Authors in \cite{Tan20061725} review the also challenging topic of face recognition using  just one image per
+class for training comparing several prominent algorithms for the tasks. the rationale for the study is the reported
+critique that several face recognition techniques rely heavily on the size of the training set.
+
+
+In summary, in this paper we apply that open source face tracker XXXXX for identity recognition and for facial
+expression recognition.
 
 
 
 \section{Methodology}
 \subsection{Face Tracker}
+---- For Jesus to fill in---------------
 
 \subsection{Experimental Setup}
 This is a reference to Figure \ref{figureLabel}
@@ -109,10 +139,45 @@ This is a reference to Figure \ref{figureLabel}
 
 
 \section{Results}
-More plain text.
+The results of the identity recognition experiments are shown in Figure \ref{}.
 
-\section{Summary and Discussion}
-In this work we have used an open-source face tracker to classify facial expressions.
+
+\begin{figure}[ht]
+\begin{center}
+\vspace{-3mm}
+\includegraphics[width=0.95\textwidth,height=50mm]{figures/identityRecognition.jpg}
+\end{center}
+\caption{\textbf{Identity Recognition Results} Explanation of the figure.}
+\label{identityRecognition}
+\end{figure}
+
+
+The results of the facial expression recognition  are shown in Figure \ref{}.
+
+\begin{figure}[ht]
+\begin{center}
+\vspace{-3mm}
+\includegraphics[width=0.95\textwidth,height=50mm]{figures/feRecognition.jpg}
+\end{center}
+\caption{\textbf{Facial Expression Recognition Results} Explanation of the figure.}
+\label{feRecognition}
+\end{figure}
+
+
+Figure \ref{increasingNumberExpressions} shows the results of increasing the number of facial expressions to recognize
+by the classifier.
+
+\begin{figure}[ht]
+\begin{center}
+\vspace{-3mm}
+\includegraphics[width=0.95\textwidth,height=50mm]{figures/increasingNumberExpressions.jpg}
+\end{center}
+\caption{\textbf{Effect of Increasing the Number of Facial Expressions to Recognize} Explanation of the figure.}
+\label{increasingNumberExpressions}
+\end{figure}
+
+\section{Discussion}
+In this work we have used an open-source face tracker to recognize facial identity and to classify facial expressions.
 
 
 \bibliographystyle{plain}
