@@ -1,3 +1,4 @@
+
 \documentclass[]{article}
 
 \usepackage{amsmath}
@@ -9,6 +10,7 @@
 %\usepackage{biblatex} 
 %\usepackage[pdftex]{graphicx}
 \usepackage{anysize}
+\usepackage[usenames]{color}
 \marginsize{3cm}{3cm}{2cm}{2.5cm}%l r t b
 
 \title{Open source face tracker for identity detection and facial expression Recognition}
@@ -17,67 +19,92 @@
  
 \author{Eduardo Neiva, Jesus Nuevo, David Rozado}
 
-\setlength\parindent{0pt} %no indentation in paragraphs
+%\setlength\parindent{0pt} %no indentation in paragraphs
 % Document starts
 \begin{document}
 
 \maketitle
 
 \section{Abstract}
-I am creating a conflict
-Face and eye tracking technology are fairly well developed and robust technologies. Eye tracking permits the monitoring 
-of the user's area of attention on a computer screen while also providing a hint about possible intention.
-Facial tracking can augment eye tracking by monitoring facial features that can convey the identity of the user or its
-internal cognitive state as expressed on its facial expression. In this work, we use an open source face tracker that to
-classify facial expressions from continuous video input. The system uses ---------- for jesus to fill --------------. We
-show that the studied face tracker is a powerful tool to recognize the identity of the user among a larger pool of
-subjects. We also show  that it can robustly recognize facial expressions of users on which the system has been trained
-while also performing well on users never before exposed to the system.
+Face and eye tracking technology are fairly well developed and robust
+technologies. Eye tracking permits the monitoring of the user's area
+of attention on a computer screen while also providing a hint about
+possible intention. Facial tracking can augment eye tracking by
+monitoring facial features that can convey the identity of the user or its
+internal cognitive state as expressed on its facial expression. In
+this work, we use an open source face tracker to estimate the shape of
+the face in frames from a video input, which is then classified into
+facial expressions. The system uses the Constrained Local
+Models~\cite{saragih2011deformable} to this end. We show that the face
+shape obtained from the tracker is a powerful tool to recognize the
+identity of the user among a larger pool of
+subjects. We also show that it can robustly recognize facial
+expressions of users on which the system has been trained on
+while also generalising well to user outside the training set.
 
 
 \section{Introduction}
 Human computer interaction could be augmented by providing a computer systems with the ability to recognize the emotions
-of the humans interfacing the computer. Emotions are conveyed by humans  using the visual, vocal and other physiological
+of the humans interfacing the computer. Emotions are conveyed by humans using visual, vocal and other physiological
 means such as body gestures. Facial expressions are an indirect proxy to measure the internal cognitive emotions of
 humans. Impaired facial expression recognition by humans can be a sign of serious cognitive dysfunction such as
-schizophrenia \cite{Edwards2002789}.  Facial attributes can be tracked computationally through a video stream of the
+schizophrenia~\cite{Edwards2002789}. Facial attributes can be tracked computationally through a video stream of the
 subject's face. Making the computer aware of the emotions of the user could lead the way towards more natural interaction.
 
 
-In this work we describe the usage of an open-source face tracker to feed a set of machine learning classifiers that the
-tech subjects identity and their facial expressions. The face tracker provides the extraction of invariant features in
-the tracked faces. We used support vector machines  to classify the invariant features provided by the face tracker.
+In this work we describe the usage of an open-source face tracker to
+feed a set of machine learning classifiers that estimate the subject's
+identity and their facial expressions. The face tracker provides the
+extraction of invariant features in the tracked
+faces.\textcolor{red}{Which features?} We used support 
+vector machines to classify the invariant features provided by the
+face tracker.
 
 
-The psychological tradition has usefully classify facial expressions in seven categories: neutral, anger, disgust, fear,
-joy, sadness and surprise.
-
-
-Previous work has employed different techniques to classify  facial expressions. The work from \cite{Cohen2003160}
-tested the friend nation network classifiers for classifying expression from media, focusing on changes in distribution
-assumptions and feature dependency structures. Authors also proposed an enough that the architecture of hidden Markov
-models for automatically segmenting and recognizing human facial expressions. Authors reported recognition rates up to
-83\% For frame-based recognition methods and 82\% for the multilevel HMM. 
- 
+The psychological research has classically classified facial
+expressions in six categories, in addition to the neutral expression:
+anger, disgust, fear, joy, sadness and
+surprise~\cite{schmidt2002human}. Previous work has employed different
+techniques to classify  facial expressions. The work from
+\cite{Cohen2003160} tested the \textcolor{red}{friend nation} network
+classifiers for classifying expression from media, focusing on changes
+in distribution assumptions and feature dependency
+structures. Authors\textcolor{red}{Who?} also proposed an enough that
+the architecture of hidden Markov
+models~\textcolor{red}{[ref. missing]} for automatically segmenting and  
+recognizing human facial expressions. Authors reported recognition
+rates up to 83\% For frame-based recognition methods and 82\% for the
+multilevel HMM.
 
 The work from \cite{Chen670976} investigated the emotional contents of speech and video based facial expression to
 proposes an bioinspired algorithm for human facial expression recognition, concluding that both modalities can be
-complimentary and able to achieve higher recognition rates than either morality alone.
+complimentary and able to achieve higher recognition rates than either modality alone.
 
 
-Authors in \cite{Bartlett4624313} use perceptual primitives to code 7 facial expressions in real-time. the system first
-detects frontal faces using a cascade of feature detectors trained with boosting techniques. The expression recognizer
-receives image patches located by the phase detector. A Gabor representation of the parts is used  by a bank of kernel
-based classifiers. Authors used a combination of Adaboost and support vector machines to enhance performance. One of the
-most interesting properties of these work was its ability to change the outputs of the classifiers smoothly as a
-function of time, hence, providing a dynamical representation of facial expression.
+Bartlett et al.~\cite{Bartlett4624313} use perceptual primitives to
+code 7 facial expressions in real-time. The system first detects
+frontal faces using a cascade of feature detectors trained
+with boosting techniques\textcolor{red}{aka Viola\&Jones?}. The
+expression recognizer receives image patches located by the phase
+detector. A Gabor representation of the parts is used  by a bank of
+kernel based classifiers. Authors used a combination of Adaboost and
+support vector machines to enhance performance. One of the most
+interesting aspects of this work was its ability to change the
+outputs of the classifiers smoothly as a function of time, hence
+providing a dynamical representation of facial expression.
 
-The work from \cite{lijunyin} deviates from the typical 2D static image or 2D the video sequence recognition of
-facial expression arguing that that a 2D-based analyses is incapable of handling large pose variations and proposing
-instead the usage of classification techniques on 3-D facial expression models and making available to the community a
-database of prototypical 3D facial expression shapes.
- 
-The work from \cite{Cohn840611} made available over 2000 digitized image sequences from  182 adult subjects of
+Yin et al.~\cite{lijunyin} deviate from the typical 2D static
+image or 2D the video sequence recognition of facial expression 
+arguing that that a 2D-based analyses is incapable of handling large
+pose variations and proposing instead the usage of classification
+techniques on 3-D facial expression models. This work also introduced
+a database of database of prototypical 3D facial expression shapes.
+
+\textcolor{blue}{This paragraph should not appear here, specially if we are not using a
+  standard dataset in this work}
+Databases available to the research community that include expression
+labeling have appeared in last decade, of which the Cohn-Kanade
+database~\cite{Cohn840611} is the best known. It contains over 2000 digitized image sequences from  182 adult subjects of
 varying ethnicity, performing multiple tokens of most primary facial expressions to create a comprehensive testbed for
 comparative studies of facial expression analysis.
 
@@ -102,7 +129,10 @@ humans and have only recently started to catch up with the ability of the human 
 applications. Only recently has the technology required to carry out automatic classification of faces become
 available.
 
-Recognition of faces in outdoor environments with variation in pose and illumination remains a largely unsolved problem.
+Recognition of faces in outdoor environments with variation in pose
+and illumination remains an open problem, although substantial
+advances have been made in recent years.\textcolor{blue}{There are
+  dozens of recent references you could put here}
 
 The work from \cite{Zhao:2003} provides a good literature survey on the subject of face recognition. In
 \cite{Craw1987183} undertake an in-depth discussion of face features automatic extraction for classification purposes of
@@ -116,23 +146,59 @@ Authors in \cite{Tan20061725} review the also challenging topic of face recognit
 class for training comparing several prominent algorithms for the tasks. the rationale for the study is the reported
 critique that several face recognition techniques rely heavily on the size of the training set.
 
-
-In summary, in this paper we apply that open source face tracker XXXXX for identity recognition and for facial
-expression recognition.
-
+\textcolor{blue}{What makes this work different from others?}
 
 
 \section{Methodology}
+\label{sec:methodology}
+
 \subsection{Face Tracker}
----- For Jesus to fill in---------------
+\label{sec:face_tracker}
+
+The face tracker used in this work is the regularised landmark
+mean-shift of Saragih et
+al.~\cite{saragih2011deformable}\footnote{Source code is available at \url{https://github.com/kylemcdonald/FaceTracker}} an
+extension of the original Constrained Local Model (CLM) of Cootes et
+al.~\cite{cristinacce2006feature}. CLMs try to fit
+a trained model to an unseen face using a set of local classifiers to detect
+points of interest independently, and using a global point
+distribution model (PDM), also referred as the \textit{shape model} to
+constrain the relative position of the points.
+
+The shape model is obtained from a training set. Non-rigid expressions
+are independent of the similarity transformation of the face (scale,
+rotation and translation), so the shapes are transformed
+to a common reference frame and aligned, typically using Procrustes
+method. From this set, the shape model is obtained using a
+dimensionality reduction technique such as Principal Component
+Analysis (PCA). A new shape can then be generated as
+
+\begin{equation}
+  \label{eq:shape_model}
+  \mathbf{x} = s\mathbf{R}(\bar{\mathbf{x}} +
+  \boldsymbol{\Phi}\mathbf{q}) + \mathbf{t},
+\end{equation}
+were $\mathbf{x}$ is a vector with the landmark coordinates concatenated, 
+$\{s,\mathbf{R},\mathbf{t}\}$ are the similarity transformation
+parameters and $\mathbf{q}$ are the shape deformation parameters. The
+shape model is defined by the \textit{mean shape} $\mathbf{\bar{x}}$
+and the vectors of deformations $\boldsymbol{\Phi}$.
+
+\subsection{Expression classification}
+\label{sec:expr_class}
+
+\subsection{Face recognition}
+\label{sec:face_class}
+
 
 \subsection{Experimental Setup}
+\label{sec:exper_setup}
 This is a reference to Figure \ref{figureLabel}
 
 \begin{figure}[ht]
 \begin{center}
 \vspace{-3mm}
-\includegraphics[width=0.95\textwidth,height=50mm]{figures/fileName.jpg}
+%\includegraphics[width=0.95\textwidth,height=50mm]{figures/fileName.jpg}
 \end{center}
 \caption{\textbf{Title of caption.} Explanation of the figure.}
 \label{figureLabel}
@@ -146,7 +212,7 @@ The results of the identity recognition experiments are shown in Figure \ref{}.
 \begin{figure}[ht]
 \begin{center}
 \vspace{-3mm}
-\includegraphics[width=0.95\textwidth,height=50mm]{figures/identityRecognition.jpg}
+%\includegraphics[width=0.95\textwidth,height=50mm]{figures/identityRecognition.jpg}
 \end{center}
 \caption{\textbf{Identity Recognition Results} Explanation of the figure.}
 \label{identityRecognition}
@@ -158,7 +224,7 @@ The results of the facial expression recognition  are shown in Figure \ref{}.
 \begin{figure}[ht]
 \begin{center}
 \vspace{-3mm}
-\includegraphics[width=0.95\textwidth,height=50mm]{figures/feRecognition.jpg}
+%\includegraphics[width=0.95\textwidth,height=50mm]{figures/feRecognition.jpg}
 \end{center}
 \caption{\textbf{Facial Expression Recognition Results} Explanation of the figure.}
 \label{feRecognition}
@@ -171,7 +237,7 @@ by the classifier.
 \begin{figure}[ht]
 \begin{center}
 \vspace{-3mm}
-\includegraphics[width=0.95\textwidth,height=50mm]{figures/increasingNumberExpressions.jpg}
+%\includegraphics[width=0.95\textwidth,height=50mm]{figures/increasingNumberExpressions.jpg}
 \end{center}
 \caption{\textbf{Effect of Increasing the Number of Facial Expressions to Recognize} Explanation of the figure.}
 \label{increasingNumberExpressions}
@@ -182,6 +248,6 @@ In this work we have used an open-source face tracker to recognize facial identi
 
 
 \bibliographystyle{plain}
-\bibliography{library}
+\bibliography{library,extrabib}
 
 \end{document}
