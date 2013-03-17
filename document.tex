@@ -406,7 +406,51 @@ to recognize facial expressions
 
 
 \section{Discussion}
-In this work we have used an open-source face tracker to recognize facial identity and to classify facial expressions.
+In this work we have used an open-source face tracker based on regularised landmark mean-shift to recognize facial
+identity and to classify facial expressions. The face tracker provided a feature vector invariant to scale, rotation and
+translation transformations. A person adopting a given facial shape would generate on the face tracker an invariant
+feature vector that we called through the paper signature vector. This signature vector would change with each facial
+expression  and among different subjects. Still, the similarities among people adopting the same facial expression 
+allowed for facial expression recognition of subjects unexposed to the system during training.
+
+
+The proposed system shows an extremely strong performance for recognizing facial expressions of persons whose facial
+expressions were used to train the system ( close to 100\%). performance degrades considerably when using the system to
+recognize facial expressions of subjects that were not Jews during the training phase. Still, this is an extremely
+challenging problem, and the performance of the system is encouraging and robust and not degrading even for relatively
+large numbers of people.
+
+
+Obviously the larger the amount of classes (facial expressions) to classify, the more challenging the
+classification problem is. In this work, we did not limit ourselves to the traditional set  of seven facial expressions
+used in the literature on the subject. We've included additional facial expressions or more appropriately facial shapes
+in order to test the performance of our approach in extreme environments. Obviously, the performance of the proposed
+method degrades as the number of classes  on facial shapes increases, but these decrees is smooth with no abrupt
+negative slopes as the number of facial shapes is increased over the different experimental trials.
+
+
+When we observed the distinctive feature vectors signature associated to each individual face, we immediately thought
+about the application of using the face tracker engine to recognize facial identity. The algorithm performed extremely
+well  through the whole range of testing conditions that we tested ( using interfaces neutral faces, using six facial
+shapes and using 11 facial shapes). The algorithm proved to be extremely robust to recognize the identity of face using
+just an neutral face, with performance  almost as high as 100\%.
+
+The initial motivation for this work was to test a face tracker in the recognition of facial expressions  to augment
+existing gaze tracking systems enough to to provide additional information about the internal cognitive state of the
+subject interfacing a computer system. We have shown that the data provided by these open-source face tracker is enough
+on its own to generate a rich source of information that can be used to monitor a user. The open source nature of the
+software makes its distribution and adoption by the research community extremely easy. Also, the very basic hardware
+requirements required by the face tracker, just a normal web camera, further facilitates its adoption and dispersion
+within the research community. 
+
+
+In summary, we have shown here how an open source face tracker using regularized landmark main shift can be successfully
+used to recognize facial identity and facial expression. Future work should try to integrate the data provided by the
+eye tracker with the data provided by the face tracker in order to show how the combination of both tracking modalities
+augments and improves the monitoring capabilities of either system on its own.
+
+
+
 
 
 \bibliographystyle{plain}
