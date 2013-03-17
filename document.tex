@@ -294,16 +294,15 @@ for training and testing. The ratio is kept by assigning 70\% of the face shapes
 of this person to the train set and 30\% to the test set. The procedure is conducted
 by increasing the number of people in the experiment and testing the results
 accuracy.
-
-\item[$\bullet$ Method 2:] All facial expressions were used in this experiment,
-the training and test set don't  share the same group of participants, the ratio
-is kept by assigning 70\% of the people on the training set and 30\% on the
+\item[$\bullet$ Method 5:] All facial expressions were used in this experiment,
+the training and test set do not  share the same group of participants, the
+ratio is kept by assigning 70\% of the people on the training set and 30\% on the
 test set. The procedure is conducted by increasing the number of people in the
 experiment and testing the results accuracy.
-\item[$\bullet$ Method 6:] The third method had a different methodology, it was
+\item[$\bullet$ Method 6:] The sixth method had a different methodology, it was
 used the all the participants but its goal was to analyze the impact on accuracy
-on increasing the number of face shapes.  The training and test set don't share 
-the same group of people, and the ratio was to assign 70\% of the whole set to
+on increasing the number of face shapes(classes).  The training and test set do
+not share the same group of people, and the ratio was to assign 70\% of the whole set to
 train and 30\% to test. The procedure is conducted by increasing the number of
 face shapes (classes) in the experiment and testing the results accuracy.
 \end{description}
@@ -330,7 +329,7 @@ FACIAL EXPRESSIONS OR JUST NEUTRAL? what is THE FRIENDS BETWEEN the labels in th
 \begin{figure}[ht]
 \begin{center}
 \vspace{-3mm}
-\includegraphics[width=0.95\textwidth]{figures/figureRecognizeFacialExpression5.jpg}
+\includegraphics[width=0.95\textwidth]{figures/figureRecognizeFacialExpressionTrue.jpg}
 \end{center}
 \caption{\textbf{Facial Expression Recognition Results.} This figure shows the result of the facial expression recognition results.
 The curve labeled ``including'' petition the data set to training and test sets, but that training and test sets belong to the same participants.
@@ -352,17 +351,22 @@ set was different compared to the training set, it was expected to have high
 accuracy results.
 For the second method ( Method 5), it was expected that as long as it is
 increased the number of people in the data, the accuracy gradually would increase.
+As we can see on the Figure \ref{identityRecognition}, the accuracy obtained
+with 50 participants using the Method 4(Excluding) was 57.18\%, and using the
+Method 5(Including) was 97.5%
  
-%STOPPPED HERE
-
-The results of the facial expression recognition  are shown in Figure
+The results of the facial expression recognition are shown in Figure
 \ref{identityRecognition}.
  
-\subsection{Recognizing Face Expressions increasing the number of classes}
+\subsection{Recognizing Face Expressions results by changing the number of
+classes}
 
-Using a 10-fold cross validation, in this approach the goal was to measure the
-change of effiency of the algorithm by increasing the number of classes from 2
-to 11. The amount of people used was 50.
+In this experiment, the goal was to evaluate the impact on accuracy by
+increasing  the number of classes that has to be recognized. The Method 6 was
+assigned on this task. It was expected that the algorithm lose accuracy
+efficiency as we include more facial expressions (classes). The accuracy for 4
+classes was 95.1\% and for 7 classes was 73.2\%.
+
 
 \begin{figure}[ht]
 \begin{center}
@@ -384,8 +388,17 @@ algorithm. Instead of face shapes being the classes, in this method, the people
 to recognize were transformed into the classes. Therefore, the increase of
 people to recognize increase the number of the classes, thus decreasing the
 efectiviness of the algorithm. It was analysed from 2 to 50 people the algorithm
-accuracy. It was also analysed in three different scenarios, using only the
-normal face shape, using only 6 and using all 11 face shapes in each classe.
+accuracy in three different scenarios, this scenarios are descibred by Method 1,
+Method 2 and Method 3, which represents the approach using only neutral face, 6
+face shapes and 11 face shapes.
+
+It's expected that as we increase the number of people in the experiment results
+in a reduced accuracy due the growth of classes of the problem. It’s also
+expected  that using less face shapes to model one person reduce the complexity
+of  each class and thus resulting in a higher accuracy result.
+From the Figure \ref{feRecognition}, it is shown that to recognize 50 people
+using only Neutral faces resulted in 98.1\%, using 6 face shapes 82.9\% and
+using 11 face shapes 76.02\%
  
 
 
@@ -402,9 +415,8 @@ robust  recognition.}
 \label{feRecognition}
 \end{figure}
 
-
 Figure \ref{feRecognition} shows the results of increasing the number of people
-in the facial identity recognition problem.
+to recognize facial expressions.
 
 
 \section{Discussion}
