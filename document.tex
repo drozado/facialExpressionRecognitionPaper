@@ -157,9 +157,18 @@ al.~\cite{saragih2011deformable}\footnote{Source code is available at
 the original Constrained Local Model (CLM) of Cootes et al.~\cite{cristinacce2006feature}. We only present these methods
 here briefly, and refer the reader to the original articles. CLMs try to fit a trained model to an unseen face using a
 set of local classifiers to detect points of interest independently, and using a global point distribution model (PDM),
-also referred as the \textit{shape model} to constrain the relative position of the points.
+also referred as the \textit{shape model} to constrain the relative position of the points. Figure~\ref{fig:CLM} illustrates the fitting process of CLM.
 
-The shape model is obtained from a training set. Non-rigid expressions are independent of the similarity transformation
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=12cm]{figures/CLM.png}
+  \caption{Contrained Local Model fitting. The local patch classifiers generate surface responses, which are optimised
+ together with the shape contraints. Courtesy of authors of~\cite{saragih2011deformable}.}
+  \label{fig:CLM}
+\end{figure}
+
+
+The shape model is created from a training set. Non-rigid expressions are independent of the similarity transformation
 of the face (scale, rotation and translation), so the shapes are transformed to a common reference frame and aligned,
 typically using Procrustes method. From this set, the shape model is obtained using a dimensionality reduction technique
 such as Principal Component Analysis (PCA). A new shape can then be generated as
@@ -175,7 +184,15 @@ parameters and $\mathbf{q}$ are the shape deformation parameters. The
 shape model is defined by the \textit{mean shape} $\mathbf{\bar{x}}$
 and the vectors of deformations $\boldsymbol{\Phi}$.
 
-\textcolor{blue}{More text and a picture coming}
+Patch classifiers are also created from a training
+set. In~\cite{saragih2011deformable} the classifiers are linear SVMs,
+which makes computation of the surface responses very fast. The
+surface responses are composed with a sigmoid function, which output
+can be treated as a probability map of the location of the
+landmarks. These location of each landmark in it corresponding map is
+then optimised with contrained mean-shift, where the locations are
+updated using mean-shift independent of each other, and are then
+constrained together by the shape model described above.
 
 
 
