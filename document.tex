@@ -135,6 +135,25 @@ dynamics.
 (eDUARDO IT IS VERY IMPORTANT THAT THE THE SECTION YOU INCLUDE A BRIEF subsection OF JUST ONE PARAGRAPH IN WHICH YOU
 PROVIDE A BRIEF DESCRIPTION OF WHAT SUPPORT VECTOR MACHINES ARE)
 
+\subsection{SVM}
+
+Support vector machines have become popular in the supervised learning models
+for classification. It generates a set of hyperplanes in a multiple dimensional
+space which is used for classification.  A good classification is produced by
+maximizing the distances between the nearest training data points of the classes.
+
+Whenever this problem is not linearly separable in that space, a technique named
+kernel functions was stated to map the original space into a much
+higher-dimensional space in order to achieve easier separations. Since SVM makes
+binary decision, a multi-class one-to-one classification was assigned for the problem.
+In the following experiments, it was used an open source SVM library called
+LIBSVM, it’s available for many languages and support most of the needs on the
+SVM classification.
+
+ADD REFERENCE FOR THE LIBSVM
+
+
+
 \subsection{Face Tracker}
 ---- For Jesus to fill in---------------
 
@@ -190,25 +209,6 @@ people, thus the goal of the SVM was to generate an abstraction of each facial e
 carry out facial expression classification.
 
 \subsubsection{Data training}
-10-fold cross validation of the training set was used in all experiments. Three
-differents methods of (eDUARDO YOU NEED TO EXPLAIN how you partition THE DATA
-SET INTO TRAINING AND TEST SET)
-
-\begin{figure}[ht]
-\begin{center}
-\vspace{-3mm}
-\includegraphics[width=0.95\textwidth,height=70mm]{figures/comparationBetweenFaces.jpg}
-\end{center}
-\caption{\textbf{Invariant and Unique Feature Vectors of Facial Expressions.} this figure displays a. Typical feature 
-vector signature specific for a given person. These constraint can be used to recognize people. The feature vector
-provided by the face tracker changes for each facial expression perform but remains invariant we seen a given facial 
-expression. Furthermore, features vectors of the same facial expression among different people share commonalities that
-can be exploited to carry out facial expression recognition among different people.}
-\label{comparationBetweenFaces}
-\end{figure}
-
-\section{Results}
-
 
 The first experiment tried to recognize people's identity using the entire data
 set of the study participants. Three methods of training was used for this
@@ -236,24 +236,22 @@ accuracy.
 
 For face shape recognition, there were three different methods of training that
 were used throughout the experiments. All of them used a 7:3 ratio for testing 
-and training set.
+and training set respectively.
 
 \begin{description}
-\item[$\bullet$ Method 1:] All facial expression were used in this experiment,
+\item[$\bullet$ Method 4:] All facial expression were used in this experiment,
 the training and test set share the same group of participants but using
 different  versions( captured in a different time slot) of the same face shape
 for training and testing. The ratio is kept by assigning 70\% of the face shapes
 of this person to the train set and 30\% to the test set. The procedure is conducted
 by increasing the number of people in the experiment and testing the results
 accuracy.
-
-\item[$\bullet$ Method 2:] All facial expressions were used in this experiment,
+\item[$\bullet$ Method 5:] All facial expressions were used in this experiment,
 the training and test set don’t  share the same group of participants, the ratio
 is kept by assigning 70\% of the people on the training set and 30\% on the
 test set. The procedure is conducted by increasing the number of people in the
 experiment and testing the results accuracy.
-\item[]
-\item[$\bullet$ Method 3:] The third method had a different methodology, it was
+\item[$\bullet$ Method 6:] The third method had a different methodology, it was
 used the all the participants but its goal was to analyze the impact on accuracy
 on increasing the number of face shapes.  The training and test set don’t share 
 the same group of people, and the ratio was to assign 70\% of the whole set to
@@ -261,7 +259,23 @@ train and 30\% to test. The procedure is conducted by increasing the number of
 face shapes (classes) in the experiment and testing the results accuracy.
 \end{description}
 
- (eDUARDO HERE YOU NEED TO EXPLAIN THE SPECIFICS OF THESE EXPERIMENTS, where you using ALL
+\begin{figure}[ht]
+\begin{center}
+\vspace{-3mm}
+\includegraphics[width=0.95\textwidth,height=75mm]{figures/comparationBetweenFaces2.jpg}
+\end{center}
+\caption{\textbf{Invariant and Unique Feature Vectors of Facial Expressions.} this figure displays a. Typical feature 
+vector signature specific for a given person. These constraint can be used to recognize people. The feature vector
+provided by the face tracker changes for each facial expression perform but remains invariant we seen a given facial 
+expression. Furthermore, features vectors of the same facial expression among different people share commonalities that
+can be exploited to carry out facial expression recognition among different people.}
+\label{comparationBetweenFaces}
+\end{figure}s
+
+\section{Results}
+
+
+ eDUARDO HERE YOU NEED TO EXPLAIN THE SPECIFICS OF THESE EXPERIMENTS, where you using ALL
 FACIAL EXPRESSIONS OR JUST NEUTRAL? what is THE FRIENDS BETWEEN the labels in the figure including and excluding?).
 
 \begin{figure}[ht]
@@ -275,14 +289,19 @@ FACIAL EXPRESSIONS OR JUST NEUTRAL? what is THE FRIENDS BETWEEN the labels in th
 
 \subsection{Recognizing Face Expressions}
 
-In this experiment, the goal was to recognize each of the 11 different classes of facial expressions in the training
-set. It was used all the 24 features of each face shape. It was
- given two different aproaches on the performance measurement. The first one was by separating the 20 samples of each
- person face expression into two segments, one containing 17 samples and other 3. The 17 samples were used to train
- while the remaining ones to test. This approach will be called Including. The second approach was by using all the 20
- samples but using different people one the training set and the testing set. It was kept the same ratio for the second
- approach, 70\%.
+In this experiment, the goal was to recognize each of the 11 different classes
+of facial expressions in the training set. It was used all the 24 features of
+each face shape. It was given two different aproaches on the results
+measurement. These different approaches are described by the Method 4 and
+Method 5 in the Data training section.
+For the first method, since the group of people used in the training set is the
+same that it is used on the test set, and even though the data used in the test
+set was different compared to the training set, it was expected to have high
+accuracy results.
+For the second method ( Method 5), it was expected that as long as it is
+increased the number of people in the data, the accuracy gradually would increase.
  
+###STOPPPED HERE
 
 The results of the facial expression recognition  are shown in Figure
 \ref{identityRecognition}.
