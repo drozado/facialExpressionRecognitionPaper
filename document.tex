@@ -76,12 +76,9 @@ for fully automatic recognition of facial expressions.
 
 Previous work has employed a variety of techniques to classify  facial expressions. The work from \cite{Cohen2003160}
 tested the classic neural network classifiers for classifying expression from video, focusing on changes in distribution
-assumptions and feature dependency
-structures. Authors~\textcolor{red}{who? same as above?} also proposed
-and tested Hidden Markov Models (HMM) for automatically segmenting and
-recognizing human facial expressions. Authors reported recognition
-rates up to 83\% for frame-based recognition methods and 82\% for the
-multilevel HMM. 
+assumptions and feature dependency structures. The same authors also proposed and tested Hidden Markov Models (HMM) for
+automatically segmenting and recognizing human facial expressions. Authors reported recognition rates up to 83\% for
+frame-based recognition methods and 82\% for the multilevel HMM.
 
 
 The work from \cite{Chen670976} investigated the emotional contents of speech and video based facial expression to
@@ -99,10 +96,6 @@ of kernel based classifiers. Authors used a combination of Adaboost and support 
 One of the most interesting properties of this work was its ability to change the outputs of the classifiers smoothly
 as a function of time, hence, providing a dynamical representation of facial expression.
 
-Yin et al.~\cite{lijunyin} deviates from the typical 2D static image or 2D the video sequence recognition of
-facial expression arguing that that a 2D-based analyses is incapable of handling large pose variations and proposing
-instead the usage of classification techniques on 3-D facial expression models and making available to the community a
-database of prototypical 3D facial expression shapes.
 
 \textcolor{blue}{This paragraph should not appear here, specially if
   we are not using a standard dataset in this work. Justifying why we
@@ -161,7 +154,7 @@ kernel functions was stated to map the original space into a much
 higher-dimensional space in order to achieve easier separations. Since SVM makes
 binary decision, a multi-class one-to-one classification was assigned for the problem.
 In the following experiments, it was used an open source SVM library called
-LIBSVM, it’s available for many languages and support most of the needs on the
+LIBSVM, it's available for many languages and support most of the needs on the
 SVM classification.
 
 ADD REFERENCE FOR THE LIBSVM
@@ -207,15 +200,19 @@ and the vectors of deformations $\boldsymbol{\Phi}$.
 
 \subsection{Experimental Setup}
 The dataset that was used to train and test the recognition algorithms was specifically generated for this work. It
-consists of 50 people (age distribution ranged from 19 to 40 years old). From the entire set, 80\% were male, 16\% were
-Latino and 10\% were Asian\textcolor{blue}{This is confusing, mixing ethnicity with gender}. The data extraction was made using a standard notebook webcam, 1.3 MP, running at a
-resolution of 640x480. The distance between the camera and the subject's face was about 114cm. The data extracted from
-the face tracker was a vector with 24 dimensions that represents a particular face shape at any given time point. This
-vector has the property of being invariant within a particular face shape.
-(i DON'T LIKE THE LAST SENTENCE, MAYBE jESUS COULD IMPROVE OR ADD SOMETHING so it makes better SENSE)
-\textcolor{blue}{I don't get it either: the deformation parameters are independent from the face pose}
+consists of 50 people (age distribution ranged from 19 to 40 years old). From the entire set, 80\% were male and 20\%
+female. In terms of ethnicity 16\% were Latino, 10\% were Asian and the rest were caucasian. The data extraction was
+made using a standard notebook webcam, 1.3 MP, running at a resolution of 640x480.
+The distance between the camera and the subject's face was about 114cm. The data extracted from the face tracker was a
+vector with 24 dimensions that represents a particular face shape at any given time point. This vector has the property
+of being invariant to changes in scale, rotation and translation but provides a distinguishing signature for different
+facial expressions and facial identities.
+
 
 \subsubsection{Metodology of the data extraction}
+We decided to create our own data set of facial shapes in order to have the freedom of defining additional  facial expressions
+to the set of standard ones usually employed in the literature or in existing online data sets. 
+
 Every participant involved in the experiment was asked to perform eleven different facial shapes or expressions.
 Five of them were stereotypical emotion common to every person (i.e., neutral, anger, disgust, fear, happiness,
 surprise). The remaining facial expressions where: open mouth, raised eyebrows,
@@ -234,9 +231,11 @@ for subsequent training and validation.
 \begin{figure}[ht]
 \begin{center}
 \vspace{-3mm}
-\includegraphics[width=0.95\textwidth,height=70mm]{figures/dataExtrationExamples.jpg}
+\includegraphics[width=0.95\textwidth,height=90mm]{figures/dataExtrationExamples.jpg}
 \end{center}
-\caption{\textbf{Data extraction} Samples of the face shapes recorded.}
+\caption{\textbf{Data Gathering}. Fifty subjects overall were recruited  and perform 11 types of facial shapes during a recording session.
+We strove to  get a diverse representation of gender, ethnicity and age. The bottom row shows the facial tracker model superimpose 
+over one of the subjects participating in the experiment.}
 \label{figureLabel}
 \end{figure}
 
@@ -295,14 +294,9 @@ for training and testing. The ratio is kept by assigning 70\% of the face shapes
 of this person to the train set and 30\% to the test set. The procedure is conducted
 by increasing the number of people in the experiment and testing the results
 accuracy.
-<<<<<<< HEAD
 
 \item[$\bullet$ Method 2:] All facial expressions were used in this experiment,
 the training and test set don't  share the same group of participants, the ratio
-=======
-\item[$\bullet$ Method 5:] All facial expressions were used in this experiment,
-the training and test set don’t  share the same group of participants, the ratio
->>>>>>> 59c0dcc02e5667f765a105b703563c286e8244a0
 is kept by assigning 70\% of the people on the training set and 30\% on the
 test set. The procedure is conducted by increasing the number of people in the
 experiment and testing the results accuracy.
@@ -338,7 +332,10 @@ FACIAL EXPRESSIONS OR JUST NEUTRAL? what is THE FRIENDS BETWEEN the labels in th
 \vspace{-3mm}
 \includegraphics[width=0.95\textwidth]{figures/figureRecognizeFacialExpression5.jpg}
 \end{center}
-\caption{\textbf{Identity Recognition Results} Explanation of the figure.}
+\caption{\textbf{Facial Expression Recognition Results.} This figure shows the result of the facial expression recognition results.
+The curve labeled ``including'' petition the data set to training and test sets, but that training and test sets belong to the same participants.
+The curve labeled ``excluding'' represents the much harder problem of recognizing facial expressions of unknown subjects. Still, 
+the performance of the system was quite robust as the number of people increased.}
 \label{identityRecognition}
 \end{figure}
 
@@ -356,7 +353,7 @@ accuracy results.
 For the second method ( Method 5), it was expected that as long as it is
 increased the number of people in the data, the accuracy gradually would increase.
  
-###STOPPPED HERE
+%STOPPPED HERE
 
 The results of the facial expression recognition  are shown in Figure
 \ref{identityRecognition}.
@@ -372,7 +369,8 @@ to 11. The amount of people used was 50.
 \vspace{-3mm}
 \includegraphics[width=0.95\textwidth]{figures/50people_increasing_classes.jpg}
 \end{center}
-\caption{\textbf{Effect of Increasing the Number of Facial Expressions to Recognize} Explanation of the figure.}
+\caption{\textbf{Effect of Increasing the Number of Facial Expressions to Recognize.} This figure displays how the 
+performance of the system degrades as the number of classes or face shapes to recognize is increased. }
 \label{increasingNumberExpressions}
 \end{figure}
 
@@ -396,13 +394,17 @@ normal face shape, using only 6 and using all 11 face shapes in each classe.
 \vspace{-3mm}
 \includegraphics[width=0.95\textwidth]{figures/peopleRecognition4.jpg}
 \end{center}
-\caption{\textbf{Facial Expression Recognition Results} Explanation of the figure.}
+\caption{\textbf{Facial Identity Recognition Results.} the facial tracker engine used in this work can also be employed 
+to recognize the identity of the face since the feature vector generated is very representative  of each different face.
+Facial identity recognition performed very well when using the training set consisting of exclusively neutral faces. 
+Performance degraded slightly as we increased the number of facial shapes in the training set, but still the system shows 
+robust  recognition.}
 \label{feRecognition}
 \end{figure}
 
 
 Figure \ref{feRecognition} shows the results of increasing the number of people
-to recognize facial expressions
+in the facial identity recognition problem.
 
 
 \section{Discussion}
