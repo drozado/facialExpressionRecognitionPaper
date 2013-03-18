@@ -12,11 +12,13 @@
 \usepackage{anysize}
 \marginsize{3cm}{3cm}{2cm}{2.5cm}%l r t b
 
-\title{Using an Open Source Face Tracker for Identity Detection and Facial Expression Recognition}
+\title{Using an Open Source Face Tracker for Identity Detection and Facial
+Expression Recognition}
 %\title{Controlling a smart phone using gaze gestures}
 %\title{Gaze gestures as an innovative HCI method for smartphone like devices}
  
-\author{Eduardo Neiva, Jesus Nuevo, David Rozado}
+\author{Eduardo Neiva\footnote{Scholar at CNPq, National
+Council for Scientific and Technological Development - Brazil}, Jesus Nuevo, David Rozado}
 
 \setlength\parindent{0pt} %no indentation in paragraphs
 % Document starts
@@ -49,7 +51,6 @@ dysfunction such as schizophrenia \cite{Edwards2002789}.  Facial attributes can 
 video stream of the subject's face. Making the computer aware of the emotions of the user could lead the way towards
 more natural and fluid forms of interaction.
 
-\footnote{This work was supported by CNPq, National Council for Scientific and Technological Development - Brazil}
 
 In this work we describe the usage of an open-source face tracker that feeds a set of machine learning classifiers
 striving to identify subjects identity and their facial expressions. The face tracker provides a set of pose-invariant
@@ -345,7 +346,7 @@ classification algorithm was tested on facial identities to which it had not bee
 experimental condition, we expected improving performance up to a point as we would increased the number of training
 instances. However we never reach a saturation point with our data set as evidence by Figure \ref{feRecognition}. The
 accuracy obtained with 50 participants using the ``Excluding'' experimental condition was 57.18\%, and when using the
-``Including'' experimental condition it was 97.5\%.
+``Including'' experimental condition it was 90.5\%.
  
 
 \begin{figure}[ht]
@@ -378,6 +379,33 @@ Open Mouth.}
 \label{coExcluding}
 \end{figure}
 
+\begin{table}[t]
+\centering
+\begin{tabular}{|l|c|}
+\hline
+Face Shapes & Accuracy(\%) \\ \hline
+Smile & 70.2\\ \hline
+Open Mouth & 67.7\\\hline
+Raised eyebrow & 66.7\\\hline
+Surprise & 65.3\\\hline
+Neutral & 60.7\\\hline
+Kissing Face & 60.3\\\hline
+Anger & 58.9\\\hline
+Sad & 58.4\\\hline
+Squint & 47.3\\\hline
+Closed Smile & 34.0\\\hline
+Disgust & 31.2\\\hline
+\end{tabular}
+\caption{\textbf{Indivudal results for classification for the 'Excluding'
+method.} This table shows the effectiveness of the algorithm over each face
+shape. The face shape smile, open mouth and raised eyebrow showed to be the
+most accurate of the set of facial expressions.}
+\label{tab:template}
+\end{table}
+
+
+
+
 \begin{figure}[ht]
 \begin{center}
 \vspace{-3mm}
@@ -392,26 +420,30 @@ still exists. }
 \label{coIncluding}
 \end{figure}
 
-\begin{figure}[ht]
-\begin{center}
-\vspace{-3mm}
-\includegraphics[width=0.95\textwidth]{figures/rankIncluding.jpg}
-\end{center}
+\begin{table}[t]
+\centering
+\begin{tabular}{|l|c|}
+\hline
+Face Shapes & Accuracy(\%) \\ \hline
+Smile & 99.3\\\hline
+Sad & 97.5\\\hline
+Kissing face & 97.5\\\hline
+Anger & 95.7\\\hline
+Raised & 95.2\\\hline
+Surprise & 93.5\\\hline
+Disgust & 92.3\\\hline
+Squint & 88.4\\\hline
+Open mouth & 81.3\\\hline
+Neutral & 80.0\\\hline
+Closed smile & 78.9\\\hline
+\end{tabular}
 \caption{\textbf{Indivudal results for classification for the 'Including'
-method.} WRITE DESCRIPTION }
-\label{raIncluding}
-\end{figure}
+method.} This table shows the effectiveness of the algorithm over each face
+shape. The face shape smile, sad and kissing face showed the most accurate of the set of facial expressions.}
+\label{tab:template}
+\end{table}
 
 
-\begin{figure}[ht]
-\begin{center}
-\vspace{-3mm}
-\includegraphics[width=0.95\textwidth]{figures/rankExcluding.jpg}
-\end{center}
-\caption{\textbf{Indivudal results for classification for the 'Excluding'
-method.} WRITE DESCRIPTION }
-\label{raExcluding}
-\end{figure}
 
  
 \subsection{Recognizing Face Expressions results by changing the number of classes}
@@ -448,8 +480,8 @@ allowed for facial expression recognition of subjects unexposed to the system du
 
 
 The proposed system shows an extremely strong performance for recognizing facial expressions of persons whose facial
-expressions were used to train the system (close to 100\%). Performance degrades considerably when using the system to
-recognize facial expressions of subjects that were not used during the training phase. Still, this is an extremely
+expressions were used to train the system (close to 100\%). Performance degrades
+considerably when using the system to recognize facial expressions of subjects that were not used during the training phase. Still, this is an extremely
 challenging problem, and the performance of the system is encouraging and robust and not degrading even for relatively
 large numbers of people.
 
