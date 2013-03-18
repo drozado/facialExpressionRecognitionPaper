@@ -56,7 +56,7 @@ features provided by the face tracker.
 
 
 The psychological literature has traditionally classified facial expressions in six categories, in addition to the
-neutral expression: anger, disgust, fear, joy, sadness and surprise~\cite{schmidt2002human}. In this work, we also
+neutral expression: anger, disgust, joy, sadness and surprise~\cite{schmidt2002human}. In this work, we also
 classify some additional facial gestures such as: raising eyebrows, open mouth, kissing face, closed smile and squint
 face.
 
@@ -152,7 +152,7 @@ illustrates the fitting process of CLM.
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=12cm]{figures/CLM.png}
+  \includegraphics[width=0.95\textwidth,height=60mm]{figures/CLM.png}
   \caption{\textbf{Contrained Local Model Fitting}. The local patch classifiers generate surface responses, which are
   optimised together with the shape constraints. Courtesy of authors of~\cite{saragih2011deformable}.}
   \label{fig:CLM}
@@ -187,7 +187,7 @@ independent of each other, and are then constrained together by the shape model 
 The dataset that was used to train and test the classification algorithms was specifically generated for this work. We
 generated the data set from scratch instead of using existing data sets of facial expressions in order to gain freedom
 in terms of the number of facial shapes available for testing. This was due to our purpose of wanting to analyze our
-system under challenging conditions beyond the classical seven facial expressions usually employed on the literature
+system under challenging conditions beyond the classical six facial expressions usually employed on the literature
 about automated facial expression  recognition. Hence, we recorded 11 facial shapes or facial expressions. In this work, we
 employ the terms facial shape of facial expression interchangeably. The data set consists of 50 people (age
 distribution ranged from 19 to 40 years old). From the entire set, 80\% were male and 20\% female. In terms of
@@ -200,7 +200,7 @@ translation but provides a distinguishing signature for different facial express
 
 \subsubsection{Methodology of the data capture}
 Every participant involved in the experiment was asked to perform eleven different facial shapes or expressions.
-Six of them were stereotypical emotions common to every person: neutral, anger, disgust, fear, happiness, surprise). The
+Six of them were stereotypical emotions common to every person: neutral, anger, disgust, joy, sadness and surprise). The
 remaining facial expressions where: open mouth, raised eyebrows, kissing face, closed smile, squint face.
 Even though the feature vector produced  by the face tracker was invariant to changes in scale, the distance between the
 camera and the subject was kept constant to maintain uniformity during the data collection.
