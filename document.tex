@@ -44,7 +44,7 @@ interacting with a computer.
 
 \section{Introduction}
 Traditional Human Computer Interaction (HCI) could be augmented by providing computer systems with the ability to
-recognize the emotions of the humans interfacing them. Emotions are conveyed by humans using the visual, vocal
+recognize the emotions of the humans interfacing them. Emotions are conveyed by humans using visual, vocal
 and other physiological means such as body gestures. Facial expressions are an indirect proxy to measure the internal
 cognitive emotions of humans. Impaired facial expression recognition by humans can be a sign of serious cognitive
 dysfunction such as schizophrenia \cite{Edwards2002789}.  Facial attributes can be tracked computationally through a
@@ -115,12 +115,12 @@ Zhao et al.~\cite{Zhao:2003} provide a good literature survey on the subject of 
 purposes of grayscale images. The work from \cite{Zhang20092876} undertakes a comprehensive review  of the challenging
 topic of pose invariant face recognition, and while showing that the performance of different methods is still far from
 perfect, several promising directions for future research  are suggested. Authors in \cite{Tan20061725} review the also
-challenging topic of face recognition using  just one image per class for training comparing several prominent
+challenging topic of face recognition using  just one image per class for training and comparing several prominent
 algorithms for the tasks. The rationale for the study is the reported critique that several face recognition techniques
 rely heavily on the number of instances representative of each class on the training set.
 
 
-In summary, in this paper we apply the open source face tracker described by \cite{saragih2011deformable} for identity
+In summary, in this paper we apply the open source face tracker described in \cite{saragih2011deformable} for identity
 recognition and for facial expression recognition. We suggest that facial tracking can be a powerful complement to
 traditional eye tracking  by augmenting the set of features being tracked during human computer interaction. This  can
 potentially allow computer systems to more precisely monitor the cognitive state of the human interfacing them through
@@ -193,7 +193,7 @@ generated the data set of facial expressions from scratch instead of using exist
 order to gain freedom in terms of the number of facial shapes available for testing. This was due to our objective of
 analyzing our system under challenging conditions beyond the classical six or seven facial expressions usually employed
 on the literature about automated facial expression  recognition. Hence, we recorded 11 facial shapes or facial
-expressions. In this work, we employ the terms facial shape of facial expression interchangeably. The data set consists
+expressions. In this work, we employ the terms facial shape or facial expression interchangeably. The data set consists
 of 50 people (age distribution ranged from 19 to 40 years old). From the entire set, 80\% were male and 20\% female. In
 terms of ethnicity, 16\% were Latino, 10\% were Asian and the rest were Caucasian. The data capture was made using a
 standard notebook webcam, 1.3 MP, running at a resolution of 640x480. The distance between the camera and the subject's
@@ -203,11 +203,12 @@ rotation and translation but provides a distinguishing signature for different f
 
 
 \subsubsection{Methodology of the data capture}
-Every participant involved in the experiment was asked to perform eleven different facial shapes or expressions.
-Six of them were stereotypical emotions common to every person: neutral, anger, disgust, joy, sadness and surprise. The
-remaining facial expressions where: open mouth, raised eyebrows, kissing face, closed smile, squint face.
-Even though the feature vector produced  by the face tracker was invariant to changes in scale, the distance between the
-camera and the subject was kept constant to maintain uniformity conditions among subjects during the data collection.
+Every participant involved in the experiment was asked to perform eleven different facial shapes or expressions
+\ref{dataExtrationExamples}. Six of them were stereotypical emotions common to every person: neutral, anger, disgust,
+joy, sadness and surprise. The remaining facial expressions where: open mouth, raised eyebrows, kissing face, closed
+smile and squint face. Even though the feature vector produced  by the face tracker was invariant to changes in scale,
+the distance between the camera and the subject was kept constant to maintain uniformity conditions among subjects
+during the data collection.
 
 
 \begin{figure}[ht]
@@ -217,14 +218,14 @@ camera and the subject was kept constant to maintain uniformity conditions among
 \end{center}
 \caption{\textbf{Data Gathering}. Fifty subjects overall were recruited and asked to perform 11 types of facial shapes during a 
 recording session. We strove to  get a diverse representation of gender, ethnicity and age. The bottom row shows the facial tracker 
-model superimpose over one of the subjects participating in the experiment.}
-\label{comparationBetweenFaces}
+model superimposed over one of the subjects participating in the experiment.}
+\label{dataExtrationExamples}
 \end{figure}
 
 
 Each participant was given a chance to familiarize with the system and to try out all the different facial expressions
 to pose during the data capture phase. After this familiarization stage with the system, the subject was told to perform
-again the 11 face shapes this time for recording purposes. For every face shape category, 20 samples were recorded with
+again the 11 face shapes, this time for recording purposes. For every face shape category, 20 samples were recorded with
 a small time interval between them (less than one second). Each sample consisted on capturing the invariant vector
 provided by the eye tracker that transforms a neutral face shape into the deformed face shape that fits the subject
 facial expression. Since often there were fluctuations on the borders of the face being tracked and this generated some
@@ -245,8 +246,8 @@ expressions of different people across identities in order to carry out facial i
 \subsubsection{Experiment}\label{experimentsSubsection}
 The first experiment tried to recognize people's identity using the entire data set of the study participants. The
 training and test set data were generated by splitting 70\% of the samples of each person and using it to train the SVM
-and using the remaining 30\%to test. 10-fold cross validation was applied for all the conditions during the validation
-procedure. Three different training conditions were used for this experiment. For all the training conditions, the
+and using the remaining 30\% for testing. 10-fold cross validation was applied for all the conditions during the
+validation procedure. Three different training conditions were used for this experiment. For all the training conditions, the
 experiment was conducted by increasing the number of people in the experiment and testing the resulting accuracy. The 3
 training conditions analyzed were:
 
@@ -297,8 +298,7 @@ can be exploited to carry out facial expression recognition among different peop
 \label{comparationBetweenFaces}
 \end{figure}
 
-A video demonstration sample of the signature vector changes, the face tracker
-superimposition, facial expression and the people recognition is available at
+A video demonstration sample of the signature vector changes across people and facial expressions is available at:
 \url{ http://youtu.be/zhocLU5NXDU}
 
 \section{Results}
@@ -309,15 +309,15 @@ each person to be recognized represents a class. Therefore, increasing the numbe
 increases the number of the classes and the difficulty for the classification algorithm. We tested the performance of
 the algorithm on the range of 2 to 50 people and under three different conditions: facial identity classification based
 on only the neutral face, facial identity classification based on 6 face shapes and facial identity classification based
-on 11 face shapes. The specific of each of these experimental conditions are described in Subsection
+on 11 face shapes. The specifics of each of these experimental conditions are described in Subsection
 \ref{experimentsSubsection}.
 
 
 It is expected that as we increase the number of people in the experiment, accuracy would be reduced due to the growth
-of classes in the problem. It is also expected  that using less face shapes to model one person reduces the complexity of
-each class and thus this results in higher accuracy performance. Figure \ref{identityRecognition}, shows that to recognize 50
-people using only neutral faces resulted in 98.1\% recognition accuracy.  When using 6 face shapes, accuracy decreases
-to 82.9\% and using 11 face shapes accuracy decreases further to 76.02\%.
+of classes in the problem. It is also expected  that using less face shapes to model one person reduces the complexity
+of the classification model and thus this results in higher accuracy performance. Figure \ref{identityRecognition},
+shows that to recognize 50 people using only neutral faces resulted in 98.1\% recognition accuracy.  When using 6 face
+shapes, accuracy decreases to 82.9\% and using 11 face shapes accuracy decreases it further to 76.02\%.
 
 
 \begin{figure}[ht]
@@ -327,9 +327,9 @@ to 82.9\% and using 11 face shapes accuracy decreases further to 76.02\%.
 \end{center}
 \caption{\textbf{Facial Identity Recognition Results.} The face tracker engine used in this work can be employed 
 to recognize the identity of the face since the feature vector generated by the face tracker is characteristic for
-different faces. Facial identity recognition performed very well when using the training set consisting of exclusively neutral faces. 
-Performance degraded slightly as we increased the number of facial shapes in the training set, but still the system shows 
-robust  recognition performance.}
+different faces. Facial identity recognition performed very well when using the training set consisting exclusively
+of neutral faces. Performance degraded slightly as we increased the number of facial shapes in the training set, 
+but still the system shows robust  recognition performance.}
 \label{identityRecognition}
 \end{figure}
 
@@ -339,31 +339,27 @@ In this experiment, the goal was to recognize each of the 11 different classes o
 the training set. We measured two different experimental conditions. These different experimental conditions are
 described in Subsection \ref{experimentsSubsection} and we refer to them as ``Including'' and ``Excluding''. For the
 first method ``Including'', the subjects included in the training set were the same as the subjects included on the test
-set. The sets only differ by the instances present in each them (feature vectures capture at different time points).
-This facilitated considerably the classification task and we expected to have high accuracy results. For the
+set. The sets only differ by the instances present in each of them (feature vectors captured at different time points).
+This facilitated considerably the classification task and we expected to obtain high classification accuracy. For the
 ``Excluding'' experimental condition, the subjects in the training and test sets were disjoint. That is, the
 classification algorithm was tested on facial identities to which it had not been exposed to during training. For this
-experimental condition, we expected improving performance up to a point as we would increased the number of training
-instances. However we never reach a saturation point with our data set as evidence by Figure \ref{feRecognition}. The
-accuracy obtained with 50 participants using the ``Excluding'' experimental condition was 57.18\%, and when using the
-``Including'' experimental condition it was 90.5\%.
+experimental condition, we expected worse performance than in the ``Including" condition but a gradual improvement in
+performance as more face shapes added to the training set cover a wider range of possible facial shapes configuration.
+This improvement was expected up to a point from which on, the system would start to gradually decrease in performance
+by reaching the saturating capacity of the classification model. However we never reached a saturation point with our
+data set as evidence by Figure \ref{feRecognition}. The accuracy obtained with 50 participants using the ``Excluding''
+experimental condition was 57.18\%, and 90.5\% when using the ``Including'' experimental condition.
  
-After completing the experiment, a standard way to analyze results of each
-class from a classificator, it is by a creation of a confusion matrix which
-would represent the predisposition of the algorithm to generate wrong and right
-predictions for each class.  Since the experiment was made over face shapes,
-it is expected to have overlapping error due the shapes being similar, the 
-Figure \ref{coExcluding} shows that from the ``Excluding'' methodology, we have
-this effect on some face shapes, such as the squint face shape, that 17\% of
-its cases is predicted as being a neutral face and the raised eyebrow face
-shape being predicted as neutral and closed smile face shape at 10.15\% and
-11.04\% respectively. On the Table \ref{rankEx} it is seen how often each
-face shape that is provided to the algorithm returns true positives.
-Even though in the ``Including'' confusion matrix, Figure \ref{coIncluding},
-this overlapping from one class onto another is highly reduced. This
-is seen by the presence of many near zero values is present on the table, the overlap
-is still present on some specific points of the data which demonstrate a constraint of the method on differentiating similar
-facial expressions on a large dataset.
+ 
+After completing the experiment, a standard way to analyze the behavior of each class during a classificaton task is by
+creation of a confusion matrix. This permits the visualization of the most problematic classes. Since the classification
+task was to predict face shapes, some facial expressions were expected to have considerable overlapping error due the
+facial shapes being similar, the Figure \ref{coExcluding} shows that from the ``Excluding'' methodology, we have this
+effect on some face shapes, such as the squint face shape, for which in 17\% of its cases is predicted as being a
+neutral face and the raised eyebrow face shape being predicted as neutral 10.15\% of the cases.
+On the Table \ref{rankEx} it is seen how often each face shape returns
+true positives. Similar effects can be observed in the better performance ``Including'' experimental condition in Figure
+\ref{coIncluding} and in Table \ref{rankIn}. 
 
 
 \begin{figure}[ht]
@@ -386,13 +382,12 @@ degrade in terms of performance.}
 \vspace{-3mm}
 \includegraphics[width=0.95\textwidth]{figures/confusionExcluding.jpg}
 \end{center}
-\caption{\textbf{Confusion matrix for the ``Excluding'' method.} This figure
-shows the confusion matrix for the excluding method. The left column represents the
+\caption{\textbf{Confusion Matrix for the ``Excluding'' Experimental Condition.} This figure
+shows the confusion matrix for the excluding experimental condition. The left column represents the
 actual class that should be recognized whereas the upper row represents the
 predicted class. In this table, it is seem, for example, that due the similarity
-of the Open mouth and Surprise face shape, 25 percent the Open mouth cases were
-identified as Surprise and 18 percent of the Surprise results were identified as
-Open Mouth.}
+of the Open mouth and Surprise face shape, 25 percent the Open mouth instances were
+incorrectly classified.}
 \label{coExcluding}
 \end{figure}
 
@@ -413,10 +408,9 @@ Squint & 47.3\\\hline
 Closed Smile & 34.0\\\hline
 Disgust & 31.2\\\hline
 \end{tabular}
-\caption{\textbf{Indivudal results for classification for the 'Excluding'
-method.} This table shows the effectiveness of the algorithm over each face
-shape. The face shape smile, open mouth and raised eyebrow showed to be the
-most accurate of the set of facial expressions.}
+\caption{\textbf{Individual Results for Classification for the 'Excluding'
+Experimental Condition.} This table shows the effectiveness of the algorithm over each individual face
+shape. The face shape smile, open mouth and raised eyebrow showed to be predicted most accurately.}
 \label{rankEx}
 \end{table}
 
@@ -428,12 +422,12 @@ most accurate of the set of facial expressions.}
 \vspace{-3mm}
 \includegraphics[width=0.95\textwidth]{figures/confusionIncluding.jpg}
 \end{center}
-\caption{\textbf{Confusion matrix for the ``Including'' method.} This figure 
+\caption{\textbf{Confusion Matrix for the ``Including'' Method.} This figure 
 shows the confusion matrix for the including method. The left column represents 
 the actual class that should be recognized whereas the upper row represents the 
-predicted class. In this table, it is seen a higher correctness on the
-prediction  of the classes. Nonetheless the inaccuracy in similar face shapes
-still exists.}
+predicted class. In this table, it is obvious the better performance of this experimental condition over the
+``Excluding" condition. Still some of the same effects observed in the ``Including" confussion matrix in terms of
+facial shapes commonly misclassified as being a different class are still present.}
 \label{coIncluding}
 \end{figure}
 
@@ -454,13 +448,11 @@ Open mouth & 81.3\\\hline
 Neutral & 80.0\\\hline
 Closed smile & 78.9\\\hline
 \end{tabular}
-\caption{\textbf{Indivudal results for classification for the ``Including''
-method.} This table shows the effectiveness of the algorithm over each face
-shape. The face shape smile, sad and kissing face showed the most accurate of the set of facial expressions.}
+\caption{\textbf{Indivudal Results for Classification for the ``Including''
+Method.} This table shows the effectiveness of the algorithm over each individual face
+shape. The face shape smile, sad and kissing face showed to be predicted most accurately.}
 \label{rankIn}
 \end{table}
-
-
 
  
 \subsection{Recognizing Face Expressions results by changing the number of classes}
@@ -469,7 +461,7 @@ The last experiment looked at how increasing the number of face shapes to recogn
 classifier. In this experiment, the goal was to evaluate the impact on accuracy of increasing  the number of classes to
 be recognized. The methodology described at the end of Subsection \ref{experimentsSubsection} was used in this
 experiment. It was expected that the algorithm would gradually decrease in accuracy efficiency as we included more
-facial expressions (classes). The accuracy for 4 classes was 95.1\% and for 7 classes was 73.2\%.
+facial shapes (classes). The accuracy for 4 classes was 95.1\% and for 7 classes was 73.2\%.
 
 
 \begin{figure}[ht]
@@ -497,37 +489,37 @@ allowed for facial expression recognition of subjects unexposed to the system du
 
 
 The proposed system shows an extremely strong performance for recognizing facial expressions of persons whose facial
-expressions were used to train the system (close to 100\%). Performance degrades
-considerably when using the system to recognize facial expressions of subjects that were not used during the training phase. Still, this is an extremely
-challenging problem, and the performance of the system is encouraging and robust and not degrading even for relatively
-large numbers of people.
+expressions were used to train the system (close to 100\%). Performance degrades considerably when using the system to
+recognize facial expressions of subjects that were not used during the training phase. Still, this is an extremely
+challenging problem, and the performance of the system is encouraging, robust and improving as the number of faces
+in the training set increases.
 
 
 Obviously the larger the amount of classes (facial expressions) to classify, the more challenging the
 classification problem is. In this work, we did not limit ourselves to the traditional set  of six facial expressions
-used in the literature on the subject. We've included additional facial expressions or more appropriately facial shapes
-in order to test the performance of our approach in extreme environments. Obviously, the performance of the proposed
-method degrades as the number of classes  or facial shapes increases, but these decrease is smooth with no abrupt
+used in the literature on the subject. We have included additional facial expressions or more appropriately facial
+shapes in order to test the performance of our approach in challenging environments. Obviously, the performance of the
+proposed method degrades as the number of classes  or facial shapes increases, but the decrease is smooth with no abrupt
 negative slopes as the number of facial shapes is increased over the different experimental trials.
 
 
 When we observed the distinctive feature vectors signature associated to each individual face, we immediately thought
 about the application of using the face tracker engine to recognize facial identity. The algorithm performed extremely
-well  through the whole range of testing conditions that we tested ( using interfaces neutral faces, using six facial
+well  through the whole range of testing conditions that we tested (using only neutral faces, using six facial
 shapes and using 11 facial shapes). The algorithm proved to be extremely robust to recognize the identity of face using
-just an neutral face, with performance  almost as high as 100\%.
+just a neutral face, with performance almost as high as 100\%.
 
-The initial motivation for this work was to test a face tracker in the recognition of facial expressions  to augment
-existing gaze tracking systems enough to to provide additional information about the internal cognitive state of the
-subject interfacing a computer system. We have shown that the data provided by these open-source face tracker is enough
-on its own to generate a rich source of information that can be used to monitor a user. The open source nature of the
-software makes its distribution and adoption by the research community extremely easy. Also, the very basic hardware
-requirements required by the face tracker, just a normal web camera, further facilitates its adoption and dispersion
-within the research community. 
+The initial motivation for this work was to test a face tracker in the recognition of facial expressions in order to
+augment existing gaze tracking systems. The fusion of face and gaze tracking modalities can provide additional
+information about the internal cognitive state of the subject interfacing a computer system. We have shown that the data
+provided by this open-source face tracker is enough on its own to generate a rich source of information that can be
+used to monitor a user emotional status. The open source nature of the software makes its distribution and adoption by
+the research community extremely easy. Also, the very basic hardware requirements required by the face tracker, just a normal web
+camera, further facilitates its adoption and dispersion within the research community.
 
 
 In summary, we have shown here how an open source face tracker using regularized landmark main shift can be successfully
-used to recognize facial identity and facial expression. Future work should try to integrate the data provided by the
+used to recognize facial identity and facial expression. Future work should try to integrate the data provided by an
 eye tracker with the data provided by the face tracker in order to show how the combination of both tracking modalities
 augments and improves the monitoring capabilities of either system on its own.
 
