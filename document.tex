@@ -33,7 +33,7 @@ open source face tracker based on constrained local models and test its ability 
 range of facial expressions and identities from continuous video input. Our results show that the face tracker is a
 powerful tool to recognize the identity of a user among a large pool of subjects. We also show that our system can
 robustly recognize facial expressions of users on which the system has been trained while also performing well on
-recognising facial expression of faces not previously shown to the system. These positive results and the open source
+recognising facial expression of faces not previously seen by the system. These positive results and the open source
 nature of the system suggest the advantages of augmenting traditional eye trackers by combining them with face tracking
 algorithms as the one suggested here to enrich the set of features available to monitor a human while interacting with a
 computer.
@@ -77,9 +77,9 @@ automatically segmenting and recognizing human facial expressions. Authors repor
 frame-based recognition methods and 82\% for the multilevel HMM.
 
 
-The work from \cite{Chen670976} investigated the emotional contents of speech and video based facial expression to
+Chen et al.~\cite{Chen670976} investigated the emotional contents of speech and video based facial expression to
 proposes a bioinspired algorithm for human facial expression recognition, concluding that both modalities can be
-complimentary and able to achieve higher recognition rates than either modality alone. Authors in \cite{Busso:2004} also
+complimentary and able to achieve higher recognition rates than either modality alone. Busso et al.~\cite{Busso:2004} also
 used a multimodal approach to combine acoustic information and facial expression analysis in order to detect human
 emotions. In their work, authors demonstrated that when both modalities are fused, the performance and the robustness of
 the emotion recognition system improves considerably.
@@ -107,7 +107,7 @@ carry out automatic classification of faces become available. But the recognitio
 where variation in pose and illumination are continuous remains a largely unsolved problem.
 
 
-The work from \cite{Zhao:2003} provides a good literature survey on the subject of face recognition. In
+Zhao et al.~\cite{Zhao:2003} provide a good literature survey on the subject of face recognition. In
 \cite{Craw1987183}, authors undertake an in-depth discussion of face features automatic extraction for classification
 purposes of grayscale images. The work from \cite{Zhang20092876} undertakes a comprehensive review  of the challenging
 topic of pose invariant face recognition, and while showing that the performance of different methods is still far from
@@ -125,19 +125,6 @@ the proxy features of facial dynamics.
 
 
 \section{Methodology}
-
-\subsection{Support Vector Machines}
-Support vector machines (SVMs) have become popular as an efficient supervised learning model for automatic
-classification. SVMs work by generating a set of hyperplanes in a multiple dimensional space which is used for
-classification.  A good classification is produced by maximizing the distances between the hyperplanes and the nearest
-training data points of the different classes. Whenever the classification problem is not linearly separable in the
-hyperplane space, a technique named kernel functions was introduced to map the original feature space into a much
-higher-dimensional space in order to achieve linear separation.
-
-Since SVMs make binary decision, a multi-class one-to-one classification approach was used for dealing with the
-several classes (facial shapes) involved in our experiments. This work has used an open source SVM library called
-LIBSVM\footnote{\url{http://www.csie.ntu.edu.tw/~cjlin/libsvm/}}. The library is available in many languages and
-supports most of the functionality associated to SVM classification.
 
 
 \subsection{Face Tracker}
@@ -181,6 +168,20 @@ which makes computation of the surface responses very fast. The surface response
 which output can be treated as a probability map of the location of the landmarks. This location of each landmark in its
 corresponding map is then optimised with constrained mean-shift, where the locations are updated using mean-shift
 independent of each other, and are then constrained together by the shape model described above.
+
+
+\subsection{Support Vector Machines}
+Support vector machines (SVMs) have become popular as an efficient supervised learning model for automatic
+classification. SVMs work by generating a set of hyperplanes in a multiple dimensional space which is used for
+classification.  A good classification is produced by maximizing the distances between the hyperplanes and the nearest
+training data points of the different classes. Whenever the classification problem is not linearly separable in the
+hyperplane space, a technique named kernel functions was introduced to map the original feature space into a much
+higher-dimensional space in order to achieve linear separation.
+
+Since SVMs make binary decision, a multi-class one-to-one classification approach was used for dealing with the
+several classes (facial shapes) involved in our experiments. This work has used an open source SVM library called
+LIBSVM\footnote{\url{http://www.csie.ntu.edu.tw/~cjlin/libsvm/}}. The library is available in many languages and
+supports most of the functionality associated to SVM classification.
 
 
 \subsection{Experimental Setup}
