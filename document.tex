@@ -172,24 +172,24 @@ independent of each other, and are then constrained together by the shape model 
 
 \subsection{Support Vector Machines}
 Support vector machines (SVMs) have become popular as an efficient supervised learning model for automatic
-classification. SVMs work by generating a set of hyperplanes in a multiple dimensional space which is used for
-classification.  A good classification is produced by maximizing the distances between the hyperplanes and the nearest
-training data points of the different classes. Whenever the classification problem is not linearly separable in the
-hyperplane space, a technique named kernel functions was introduced to map the original feature space into a much
+classification. SVMs work by generating a set of hyperplanes that separate the training samples from different classes.
+SVM achieve good generalisation by maximizing in training the distances between the hyperplanes and the nearest
+data points of the different classes. Whenever the classification problem is not linearly separable in the
+space of the data samples, kernel functions may be used to map the original feature space into a much
 higher-dimensional space in order to achieve linear separation.
 
-Since SVMs make binary decision, a multi-class one-to-one classification approach was used for dealing with the
-several classes (facial shapes) involved in our experiments. This work has used an open source SVM library called
+Since SVMs make a binary decision, a multi-class one-to-one classification approach was used for dealing with the
+several classes (facial shapes) involved in our experiments. This work has used the open source SVM library
 LIBSVM\footnote{\url{http://www.csie.ntu.edu.tw/~cjlin/libsvm/}}. The library is available in many languages and
 supports most of the functionality associated to SVM classification.
 
 
 \subsection{Experimental Setup}
-The dataset that was used to train and test the classification algorithms was specifically generated for this work. We
+The dataset used to train and test the classification algorithms was specifically generated for this work. We
 generated the data set from scratch instead of using existing data sets of facial expressions in order to gain freedom
 in terms of the number of facial shapes available for testing. This was due to our purpose of wanting to analyze our
 system under challenging conditions beyond the classical seven facial expressions usually employed on the literature
-about automated facial expression  recognition. Hence, we recorded 11 facial shapes or facial expressions. In this work, we
+about automated facial expression recognition. Hence, we recorded 11 facial shapes or facial expressions. In this work, we
 employ the terms facial shape of facial expression interchangeably. The data set consists of 50 people (age
 distribution ranged from 19 to 40 years old). From the entire set, 80\% were male and 20\% female. In terms of
 ethnicity, 16\% were Latino, 10\% were Asian and the rest were Caucasian. The data capture was made using a standard
@@ -219,7 +219,7 @@ model superimpose over one of the subjects participating in the experiment.}
 \end{figure}
 
 
-Each participant was given a chance to familiarize with the system and to try out all the different facial expressions
+Each participant was given a chance to familiarize herself with the system and to try out all the different facial expressions
 to pose during the data capture phase. After this familiarization process with the system the subject was told to
 perform again the 11 face shapes. For every face shape category, 20 samples were recorded with a small time
 interval between them (less than one second). Each sample consists on recording the invariant vector that transforms a neutral
@@ -276,7 +276,7 @@ accuracy. The 2 training conditions analyzed were:
 \end{description}
 
 
-In order to observe how the increase the number of face shapes to recognize degrades performance, we designed a third
+In order to observe how the increase in the number of face shapes to recognize degrades performance, we designed a third
 experiment. Its goal was to analyze the impact on accuracy on increasing the number of face shapes (classes).  The
 training and test set do not share the same group of people, and the ratio was to assign 70\% of the whole set to train
 and 30\% to test. The procedure is conducted by increasing the number of face shapes (classes) in the experiment and
@@ -307,7 +307,7 @@ shapes and 11 face shapes. These scenarios are described in Subsection \ref{expe
 
 It is expected that as we increase the number of people in the experiment, accuracy would be reduced due the growth of
 classes of the problem. It is also expected  that using less face shapes to model one person reduces the complexity of
-each class and thus this results in higher accuracy performance. Figure \ref{identityRecognition}, shows that to recognize 50
+each class and thus this results in higher accuracy performance. Figure \ref{identityRecognition} shows that recognizing 50
 people using only Neutral faces resulted in 98.1\% recognition accuracy.  Using 6 face shapes, accuracy decreases to
 82.9\% and using 11 face shapes accuracy decreases further to 76.02\%.
 
