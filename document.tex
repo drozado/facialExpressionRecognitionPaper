@@ -34,7 +34,7 @@ range of facial expressions and identities from continuous video input. Our resu
 powerful tool to recognize the identity of a user among a large pool of subjects. We also show that our system can
 robustly recognize facial expressions of users on which the system has been trained while also performing well on
 recognising facial expression of faces not previously seen by the system. These positive results and the open source
-nature of the system suggest the advantages and feasability of augmenting traditional eye trackers by combining them
+nature of the system suggest the advantages and feasibility of augmenting traditional eye trackers by combining them
 with face tracking algorithms as the one suggested here to enrich the set of features available to monitor a human while
 interacting with a computer.
 
@@ -56,9 +56,9 @@ features provided by the face tracker.
 
 
 The psychological literature has traditionally classified facial expressions in six categories, in addition to the
-neutral expression: anger, disgust, joy, sadness and surprise~\cite{schmidt2002human}. In this work, we also
-classify some additional facial gestures such as: raising eyebrows, open mouth, kissing face, closed smile and squint
-face.
+neutral expression: anger, disgust, joy, sadness and surprise~\cite{schmidt2002human}. In this work, we
+also classify some additional facial gestures such as: raising eyebrows, open mouth, kissing face, closed smile and
+squint face.
 
 
 Researchers have employed a variety of methods to carry out facial expression recognition such as optical flow
@@ -172,14 +172,14 @@ independent of each other, and are then constrained together by the shape model 
 
 \subsection{Support Vector Machines}
 Support vector machines (SVMs) have become popular as an efficient supervised learning model for automatic
-classification. SVMs work by generating a set of hyperplanes in a multiple dimensional space which is used for
-classification.  A good classification is produced by maximizing the distances between the hyperplanes and the nearest
-training data points of the different classes. Whenever the classification problem is not linearly separable in the
-hyperplane space, a technique named kernel functions was introduced to map the original feature space into a much
+classification. SVMs work by generating a set of hyperplanes that separate the training samples from different classes.
+SVM achieve good generalisation by maximizing in training the distances between the hyperplanes and the nearest
+data points of the different classes. Whenever the classification problem is not linearly separable in the
+space of the data samples, kernel functions may be used to map the original feature space into a much
 higher-dimensional space in order to achieve linear separation.
 
-Since SVMs make binary decision, a multi-class one-to-one classification approach was used for dealing with the
-several classes (facial shapes) involved in our experiments. This work has used an open source SVM library called
+Since SVMs make a binary decision, a multi-class one-to-one classification approach was used for dealing with the
+several classes (facial shapes) involved in our experiments. This work has used the open source SVM library
 LIBSVM\footnote{\url{http://www.csie.ntu.edu.tw/~cjlin/libsvm/}}. The library is available in many languages and
 supports most of the functionality associated to SVM classification.
 
@@ -294,6 +294,10 @@ can be exploited to carry out facial expression recognition among different peop
 \label{comparationBetweenFaces}
 \end{figure}
 
+A video demonstration sample of the signature vector changes, the face tracker
+superimposition, facial expression and the people recognition is available at
+\url{ http://youtu.be/zhocLU5NXDU}
+
 \section{Results}
 
 \subsection{Recognizing Facial Identity}
@@ -306,10 +310,10 @@ on 11 face shapes. The specific of each of these experimental conditions are des
 \ref{experimentsSubsection}.
 
 
-It is expected that as we increase the number of people in the experiment, accuracy would be reduced due the growth of
-classes in the problem. It is also expected  that using less face shapes to model one person reduces the complexity of
+It is expected that as we increase the number of people in the experiment, accuracy would be reduced due to the growth
+of classes in the problem. It is also expected  that using less face shapes to model one person reduces the complexity of
 each class and thus this results in higher accuracy performance. Figure \ref{identityRecognition}, shows that to recognize 50
-people using only Neutral faces resulted in 98.1\% recognition accuracy.  When using 6 face shapes, accuracy decreases
+people using only neutral faces resulted in 98.1\% recognition accuracy.  When using 6 face shapes, accuracy decreases
 to 82.9\% and using 11 face shapes accuracy decreases further to 76.02\%.
 
 
@@ -354,6 +358,36 @@ problem of recognizing facial expressions of unknown subjects (subjects not incl
 of the system was quite robust as the number of people increased and never saturated to the point of starting to
 degrade in terms of performance.}
 \label{feRecognition}
+\end{figure}
+
+
+\begin{figure}[ht]
+\begin{center}
+\vspace{-3mm}
+\includegraphics[width=0.95\textwidth]{figures/confusionExcluding.jpg}
+\end{center}
+\caption{\textbf{Confusion matrix for the 'Excluding' method.} This figure shows
+the confusion matrix for the excluding method. The left column represents the
+actual class that should be recognized whereas the upper row represents the
+predicted class. In this table, it is seem, for example, that due the similarity
+of the Open mouth and Surprise face shape, 25 percent the Open mouth cases were
+identified as Surprise and 18 percent of the Surprise results were identified as
+Open Mouth.}
+\label{coExcluding}
+\end{figure}
+
+\begin{figure}[ht]
+\begin{center}
+\vspace{-3mm}
+\includegraphics[width=0.95\textwidth]{figures/confusionIncluding.jpg}
+\end{center}
+\caption{\textbf{Confusion matrix for the 'Including' method.} This figure 
+shows the confusion matrix for the including method. The left column represents 
+the actual class that should be recognized whereas the upper row represents the 
+predicted class. In this table, it is seen a higher correctness on the
+prediction  of the classes. Nonetheless the inaccuracy in similar face shapes
+still exists. }
+\label{coIncluding}
 \end{figure}
 
  
